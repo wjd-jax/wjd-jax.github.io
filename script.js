@@ -424,12 +424,10 @@
   }
 
   const navLinks = [...document.querySelectorAll('.desktop-nav a[href^="#"]')];
-  const globalHeader = document.querySelector(".global-header");
   const sections = navLinks
     .map((link) => document.querySelector(link.getAttribute("href")))
     .filter(Boolean);
   const updateNavigation = () => {
-    globalHeader?.classList.toggle("is-scrolled", window.scrollY > 18);
     let activeId = "";
     sections.forEach((section) => {
       if (window.scrollY >= section.offsetTop - 180) activeId = section.id;
@@ -451,5 +449,12 @@
     }
   };
   updateNavigation();
-  window.addEventListener("scroll", updateNavigation, { passive: true });
+  let navigationFrame = 0;
+  window.addEventListener("scroll", () => {
+    if (navigationFrame) return;
+    navigationFrame = requestAnimationFrame(() => {
+      updateNavigation();
+      navigationFrame = 0;
+    });
+  }, { passive: true });
 })();
