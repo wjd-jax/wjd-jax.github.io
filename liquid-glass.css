@@ -3048,3 +3048,241 @@ body::before {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* 2026-08 portfolio refinement: evidence, readability and compact mobile flow. */
+@media screen {
+  .home-page .nav-contact-link {
+    display: none;
+  }
+
+  .home-page .hero-proof {
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .home-page .hero-proof > span {
+    padding-top: 11px;
+    white-space: nowrap;
+  }
+
+  .home-page .hero-proof div {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .home-page .hero-proof a {
+    min-width: 0;
+    min-height: 48px;
+    display: grid;
+    align-content: center;
+    gap: 2px;
+    padding: 8px 10px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .035);
+    transition: border-color .2s ease, background .2s ease, transform .2s ease;
+  }
+
+  .home-page .hero-proof a:hover {
+    transform: translateY(-2px);
+    border-color: rgba(139, 203, 255, .25);
+    background: rgba(91, 169, 255, .08);
+  }
+
+  .home-page .hero-proof b {
+    overflow: hidden;
+    color: rgba(248, 251, 255, .88);
+    font-size: 12px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+  }
+
+  .home-page .hero-proof small {
+    overflow: hidden;
+    color: rgba(203, 220, 241, .52);
+    font-size: 10px;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .home-page .section-label,
+  .home-page .case-type,
+  .home-page .case-copy dt,
+  .home-page .case-source-links > span,
+  .home-page .project-archive-title div > span,
+  .home-page .project-archive-title time,
+  .home-page .career-capabilities span {
+    font-size: 11px;
+  }
+
+  .home-page .case-source-links a,
+  .home-page .project-archive-grid footer a,
+  .home-page .about-resume-link,
+  .home-page .global-footer a,
+  .home-page .boot-skip {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .resume-page .resume-block > h2,
+  .resume-page .resume-bottom h2,
+  .resume-page .resume-projects header span,
+  .resume-page .resume-projects time,
+  .resume-page .resume-timeline time,
+  .resume-page .resume-earlier time {
+    font-size: 11px;
+  }
+
+  .resume-page .resume-projects p,
+  .resume-page .resume-projects ul,
+  .resume-page .resume-timeline p,
+  .resume-page .resume-earlier p {
+    font-size: 12px;
+  }
+
+  .resume-page .resume-projects a,
+  .resume-page .resume-header nav a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+  }
+
+  .resume-page .resume-note {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .home-page .desktop-nav .nav-contact-link {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .home-page .section {
+    padding-block: 72px;
+  }
+
+  .home-page .now-section {
+    padding-block: 68px;
+  }
+
+  .home-page .contact-section {
+    padding-block: 82px;
+  }
+
+  .home-page .motion-toggle,
+  .home-page .menu-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .home-page .wordmark {
+    min-height: 44px;
+  }
+
+  .home-page .hero-proof {
+    display: block;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .home-page .hero-proof > span {
+    display: block;
+    margin-bottom: 9px;
+    padding-top: 0;
+  }
+
+  .home-page .hero-proof div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .home-page .hero-proof a {
+    min-height: 54px;
+    padding: 8px;
+  }
+
+  .home-page .hero-proof b {
+    font-size: 11px;
+  }
+
+  .home-page .hero-proof small {
+    font-size: 9px;
+  }
+
+  .home-page .system-window {
+    margin-top: 40px;
+  }
+
+  .home-page .system-window .orchestration-card {
+    display: none;
+  }
+
+  .home-page .product-main {
+    padding-bottom: 16px;
+  }
+
+  .home-page .career-stages {
+    display: flex;
+    gap: 10px;
+    margin-right: -20px;
+    padding: 1px 20px 8px 1px;
+    overflow-x: auto;
+    border-block: 0;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .home-page .career-stages::-webkit-scrollbar,
+  .home-page .project-archive-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .home-page .career-stages article,
+  .home-page .career-stages article:last-child {
+    flex: 0 0 224px;
+    min-height: 156px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 16px;
+    background: rgba(4, 10, 21, .22);
+    scroll-snap-align: start;
+  }
+
+  .home-page .career-stages article::before {
+    top: 20px;
+    left: 20px;
+  }
+
+  .home-page .career-stages b {
+    margin-top: 36px;
+  }
+
+  .home-page .project-archive-grid {
+    display: flex;
+    gap: 10px;
+    margin-right: -14px;
+    padding-right: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .home-page .project-archive-grid > article {
+    flex: 0 0 min(286px, calc(100vw - 58px));
+    scroll-snap-align: start;
+  }
+
+  .resume-page .resume-hero address {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}

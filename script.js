@@ -96,7 +96,7 @@
     node.hidden = false;
   });
   document.querySelectorAll("[data-wechat-qr]").forEach((node) => {
-    if (profile.wechatQrUrl) node.src = profile.wechatQrUrl;
+    if (profile.wechatQrUrl) node.dataset.src = profile.wechatQrUrl;
   });
 
   const currentYear = document.querySelector("#currentYear");
@@ -395,11 +395,18 @@
   const initialCase = tabs.find((tab) => tab.getAttribute("aria-selected") === "true") || tabs[0];
   if (initialCase) activateCase(initialCase.dataset.caseTab);
 
+  document.querySelectorAll("[data-case-jump]").forEach((link) => {
+    link.addEventListener("click", () => activateCase(link.dataset.caseJump));
+  });
+
   const wechatDialog = document.querySelector(".wechat-dialog");
   const wechatOpeners = document.querySelectorAll("[data-wechat-open]");
   const wechatClose = document.querySelector("[data-wechat-close]");
   if (wechatDialog) {
     wechatOpeners.forEach((button) => button.addEventListener("click", () => {
+      document.querySelectorAll("[data-wechat-qr]").forEach((image) => {
+        if (!image.getAttribute("src") && image.dataset.src) image.src = image.dataset.src;
+      });
       if (typeof wechatDialog.showModal === "function") wechatDialog.showModal();
       else wechatDialog.setAttribute("open", "");
     }));
