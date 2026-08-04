@@ -19,5 +19,5 @@ window.SITE_PROFILE = {
   telegramLabel: "Telegram",
   telegramHandle: "@jaxwang2021",
   telegramUrl: "https://t.me/jaxwang2021",
-  availability: "欢迎交流 AI 产品化、消费级 Web3 与复杂产品 0→1",
+  availability: "欢迎交流 AI 产品化、复杂产品 0→1，以及技术、机制与增长如何形成完整系统",
 };
