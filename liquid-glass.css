@@ -264,10 +264,11 @@ body::before {
   text-shadow: 0 4px 34px rgba(0,0,0,.2);
 }
 .hero h1 span {
-  color: rgba(230,238,251,.62);
+  color: rgba(232, 243, 255, .96);
   background: none;
   -webkit-text-fill-color: initial;
   animation: none;
+  text-shadow: 0 0 34px rgba(76, 162, 255, .18);
 }
 .hero-lead {
   max-width: 750px;
