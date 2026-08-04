@@ -433,7 +433,8 @@
   const navLinks = [...document.querySelectorAll('.desktop-nav a[href^="#"]')];
   const sections = navLinks
     .map((link) => document.querySelector(link.getAttribute("href")))
-    .filter(Boolean);
+    .filter(Boolean)
+    .sort((first, second) => first.offsetTop - second.offsetTop);
   const updateNavigation = () => {
     let activeId = "";
     sections.forEach((section) => {

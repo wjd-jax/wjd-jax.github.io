@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wjd-jax.github.io/sitemap.xml
