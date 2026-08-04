@@ -3502,6 +3502,63 @@ body::before {
   }
 }
 
+/* Number hierarchy: display, content index, badge index, and micro UI. */
+.home-page .section-label {
+  font-size: 12px;
+}
+
+.home-page .card-index {
+  font-size: 14px;
+}
+
+.home-page .case-tabs button > .case-tab-index {
+  color: rgba(224, 235, 250, .58);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.home-page .review-list > div > i,
+.home-page .risk-items > div > i {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.home-page .pipeline-node i {
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.home-page .now-list article {
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+}
+
+.home-page .now-list article > span {
+  padding-top: 0;
+  color: rgba(174, 215, 255, .82);
+  font-size: 20px;
+  font-weight: 560;
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+@media screen and (max-width: 560px) {
+  .home-page .section-label {
+    font-size: 11px;
+  }
+
+  .home-page .card-index {
+    font-size: 13px;
+  }
+
+  .home-page .now-list article {
+    grid-template-columns: 44px minmax(0, 1fr);
+  }
+
+  .home-page .now-list article > span {
+    font-size: 18px;
+  }
+}
+
 /* 2026-08 personal brand clarity: factual work first, current practice later. */
 .home-page .mobile-scroll-hint {
   display: none;
