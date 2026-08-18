@@ -1,0 +1,23 @@
+// 公开身份配置：发布前只需要替换这里，不要写入私密信息或内部项目资料。
+window.SITE_PROFILE = {
+  name: "王军东",
+  englishName: "Jax",
+  avatarUrl: "assets/avatar.jpg",
+  role: "复杂产品构建者｜AI 产品实践与 Web3 背景",
+  location: "中国 · 杭州",
+  email: "wangjd.vip@gmail.com",
+  emailLabel: "Email",
+  wechatLabel: "微信",
+  wechatHandle: "墨雨",
+  wechatQrUrl: "assets/wechat-qr.jpg",
+  githubLabel: "GitHub",
+  githubHandle: "wjd-jax",
+  githubUrl: "https://github.com/wjd-jax",
+  xLabel: "X",
+  xHandle: "@jaxwang123",
+  xUrl: "https://x.com/jaxwang123",
+  telegramLabel: "Telegram",
+  telegramHandle: "@jaxwang2021",
+  telegramUrl: "https://t.me/jaxwang2021",
+  availability: "欢迎交流 AI 产品化、复杂产品 0→1、Web3 产品机制，以及工程与产品如何更好地协同",
+};

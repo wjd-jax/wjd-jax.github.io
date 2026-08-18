@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN" class="no-js experience-ready">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ComfyUI Suite 产品案例：王军东 Jax 如何把节点式 AI 工作流产品化为本地优先、可复用、可安全远程使用的创作套件。">
+  <meta name="author" content="王军东 Jax">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#0b1020">
+  <link rel="canonical" href="https://wjd-jax.github.io/case-comfyui-suite.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ComfyUI Suite 产品案例｜王军东 Jax">
+  <meta property="og:description" content="从节点工作流到本地 AI 创作产品：问题、判断、架构取舍与当前交付。">
+  <meta property="og:image" content="https://wjd-jax.github.io/assets/screenshots/comfymuse-workspace-original.png">
+  <title>ComfyUI Suite 产品案例｜王军东 Jax</title>
+  <link rel="stylesheet" href="styles.css?v=20260818-1">
+  <link rel="stylesheet" href="liquid-glass.css?v=20260818-1">
+  <link rel="stylesheet" href="case-study.css?v=20260818-2">
+  <script>document.documentElement.classList.replace("no-js", "js");try{if(localStorage.getItem("jax-motion")==="off")document.documentElement.classList.add("motion-off")}catch(error){}</script>
+</head>
+<body class="case-study-page">
+  <a class="skip-link" href="#caseMain">跳到案例正文</a>
+  <div class="ambient-field" aria-hidden="true"><canvas id="neuralCanvas"></canvas><div class="ambient-grid"></div><i class="ambient-orb orb-a"></i><i class="ambient-orb orb-b"></i></div>
+  <header class="global-header">
+    <div class="header-inner">
+      <a class="case-brand" href="index.html"><span class="case-brand-mark">JX</span><span><b>JAX / CASE STUDY</b><small>COMPLEX PRODUCT BUILDER</small></span></a>
+      <nav class="case-header-actions" aria-label="案例导航"><a href="case-tabichain.html">TabiChain</a><a href="case-cellula.html">Cellula</a><a class="case-back" href="index.html#work">返回主页 ↗</a></nav>
+    </div>
+  </header>
+
+  <main id="caseMain">
+    <section class="case-hero">
+      <div class="case-hero-inner">
+        <div class="case-hero-topline reveal"><span>CASE 01 / AI PRODUCT / CURRENT BUILD</span><span>2026—现在</span></div>
+        <h1 class="reveal">ComfyUI<br>Suite</h1>
+        <p class="case-hero-lead reveal">把节点式 AI 工作流，收敛成可配置、可复用、可安全远程使用的本地创作产品。</p>
+        <div class="case-hero-meta reveal">
+          <article><small>ROLE</small><b>独立产品与工程</b></article>
+          <article><small>SCOPE</small><b>产品、交互、前后端、运行服务</b></article>
+          <article><small>STATUS</small><b>持续开发 · 公开仓库</b></article>
+          <article><small>PRINCIPLE</small><b>Local-first · Preset-first</b></article>
+        </div>
+      </div>
+    </section>
+
+    <figure class="case-cover reveal">
+      <div class="product-shot-stage product-shot-stage-wide">
+        <img class="product-shot-backdrop" src="assets/screenshots/comfymuse-workspace-original.png" width="1200" height="818" decoding="async" alt="" aria-hidden="true">
+        <img class="product-shot-main" src="assets/screenshots/comfymuse-workspace-original.png" width="1200" height="818" decoding="async" fetchpriority="high" alt="ComfyMuse 图片创作工作台，包含创作设置、生成结果与任务队列">
+      </div>
+      <figcaption><span>COMFYMUSE / CREATION WORKSPACE</span><span>产品原图 · 本地项目实机界面</span></figcaption>
+    </figure>
+
+    <div class="case-story">
+      <aside class="case-toc reveal">
+        <span>CASE CONTENTS</span>
+        <nav aria-label="本页目录"><a href="#context">背景与问题</a><a href="#role">角色与边界</a><a href="#decisions">关键判断</a><a href="#delivery">交付结构</a><a href="#tradeoffs">产品取舍</a><a href="#reflection">结果与复盘</a></nav>
+        <a class="case-source-link" href="https://github.com/wjd-jax/ComfyUI-Suite" target="_blank" rel="noreferrer">查看公开仓库 ↗</a>
+      </aside>
+
+      <article class="case-content">
+        <section class="case-section reveal" id="context">
+          <span class="case-section-label">01 / CONTEXT &amp; PROBLEM</span>
+          <h2>能力很强，不等于可以稳定使用</h2>
+          <p>ComfyUI 提供了高度自由的节点式工作流，但真实使用还要面对模型文件、输入输出、运行状态、工作流版本和远程访问。对于日常创作来说，重复连接节点并不是价值本身，稳定获得结果才是。</p>
+          <p>因此，问题不是再做一个“更好看的 ComfyUI”，而是把底层能力组织成一套可重复使用、可维护、可追踪的产品流程，同时保留需要时回到底层工作流的自由度。</p>
+          <div class="case-callout"><span>PRODUCT QUESTION</span><strong>如何降低工作流使用门槛，又不牺牲本地能力、数据边界和高级配置空间？</strong></div>
+        </section>
+
+        <section class="case-section reveal" id="role">
+          <span class="case-section-label">02 / ROLE &amp; BOUNDARY</span>
+          <h2>独立承担从判断到运行的完整链路</h2>
+          <p>我负责需求定义、信息架构、交互、前后端实现、运行服务与验收。当前案例重点呈现已经存在于仓库和产品界面的能力，不把开发计划写成已完成结果。</p>
+          <div class="case-facts">
+            <article><span>PRODUCT</span><b>工作流产品化</b><small>将节点参数组织为用户可理解的预设与任务。</small></article>
+            <article><span>ENGINEERING</span><b>端到端实现</b><small>覆盖前端、服务端、运行状态和文件边界。</small></article>
+            <article><span>OPERATIONS</span><b>本地与远程</b><small>区分本机管理能力和对外使用入口。</small></article>
+          </div>
+        </section>
+
+        <section class="case-section reveal" id="decisions">
+          <span class="case-section-label">03 / KEY DECISIONS</span>
+          <h2>先重组产品边界，再增加功能</h2>
+          <div class="decision-list">
+            <article class="decision-card"><span>01</span><div><h3>Preset-first：把重复搭建变成可复用配置</h3><p>用户从明确的创作任务进入，修改必要参数，而不是每次重新理解整张节点图。底层工作流仍然保留，供调试和高级配置使用。</p></div></article>
+            <article class="decision-card"><span>02</span><div><h3>分离运行、创作与存储责任</h3><p>把 ComfyUI 运行能力、ComfyMuse 创作界面和文件/任务状态分别组织，减少界面层对底层执行细节的耦合。</p></div></article>
+            <article class="decision-card"><span>03</span><div><h3>本地优先，远程能力单独设防</h3><p>模型、输入和输出默认留在本地；远程使用只开放必要能力，并把管理入口与公共入口、访问凭证和输出路径边界分开。</p></div></article>
+            <article class="decision-card"><span>04</span><div><h3>把状态与失败当作产品的一部分</h3><p>任务等待、运行、取消、完成、缓存和异常不只属于后端；它们决定用户能否理解当前发生了什么，以及下一步可以做什么。</p></div></article>
+          </div>
+        </section>
+
+        <section class="case-section reveal" id="delivery">
+          <span class="case-section-label">04 / DELIVERED SYSTEM</span>
+          <h2>从一个界面，扩展成三层可维护结构</h2>
+          <p>当前公开仓库包含运行层、创作层与存储/状态层。创作侧已覆盖图片、视频和文本工作流，并提供模型与预设选择、任务历史、结果预览等日常使用所需能力。</p>
+          <div class="case-facts">
+            <article><span>RUNTIME</span><b>ComfyUI</b><small>负责模型与节点工作流执行。</small></article>
+            <article><span>PRODUCT</span><b>ComfyMuse</b><small>负责面向任务的创作与管理体验。</small></article>
+            <article><span>STATE</span><b>Storage</b><small>负责文件、历史与可追踪状态。</small></article>
+          </div>
+          <p class="case-evidence-note">证据边界：页面仅描述本地仓库和公开仓库中可核对的结构与界面，不公开本机地址、访问凭证、私有配置或未验证的使用规模。</p>
+        </section>
+
+        <section class="case-section reveal" id="tradeoffs">
+          <span class="case-section-label">05 / TRADE-OFFS</span>
+          <h2>产品化不是隐藏所有复杂性</h2>
+          <div class="tradeoff-table">
+            <div class="tradeoff-row tradeoff-head"><span>决策</span><span>获得什么</span><span>接受什么</span></div>
+            <div class="tradeoff-row"><strong>本地优先</strong><span>数据、模型和成本边界更可控。</span><span>安装、硬件与环境兼容仍需处理。</span></div>
+            <div class="tradeoff-row"><strong>预设优先</strong><span>常见任务更快、更一致地完成。</span><span>部分节点自由度不放在主流程里。</span></div>
+            <div class="tradeoff-row"><strong>安全远程</strong><span>可以跨设备使用本地算力。</span><span>需要额外的身份、路径与服务边界。</span></div>
+          </div>
+        </section>
+
+        <section class="case-section reveal" id="reflection">
+          <span class="case-section-label">06 / OUTCOME &amp; REFLECTION</span>
+          <h2>当前结果是一个可继续演化的真实产品</h2>
+          <p>这项实践已经从单一工作流扩展为包含运行、创作与存储的组合仓库，并形成了可用的本地产品界面。它验证了我的一个核心判断：AI 产品的难点往往不在单次生成，而在配置、状态、失败、数据边界和持续使用。</p>
+          <p>下一步重点不是盲目增加工作流数量，而是继续完善评估标准、失败恢复、跨设备体验和更清晰的能力分层，让“可生成”进一步变成“可依赖”。</p>
+        </section>
+      </article>
+    </div>
+
+    <section class="case-next reveal"><div><span>NEXT CASE</span><h2>从本地 AI 产品，转向消费公链的用户与生态系统。</h2></div><div class="case-next-links"><a class="button button-primary" href="case-tabichain.html">下一篇：TabiChain ↗</a><a class="button button-secondary" href="index.html#work">返回代表案例</a></div></section>
+  </main>
+
+  <footer class="global-footer"><div class="content-shell"><span>© <span id="currentYear">2026</span> 王军东</span><span>JAX · CASE STUDY 01</span><a href="#caseMain">返回顶部 ↑</a></div></footer>
+  <a class="return-home-fab" href="index.html" aria-label="回到首页"><span aria-hidden="true">←</span><b>首页</b></a>
+  <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+  <script src="profile-config.js?v=20260818-1"></script><script src="script.js?v=20260818-1"></script>
+</body>
+</html>
