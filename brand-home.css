@@ -145,7 +145,7 @@
   flex: 0 0 auto;
   margin: 22px 0 18px;
   color: rgba(235, 242, 251, .72);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.72;
 }
 
@@ -173,14 +173,14 @@
 .brand-home-page .archive-facts dt {
   color: rgba(143, 202, 255, .72);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 11px;
   line-height: 1.65;
 }
 
 .brand-home-page .archive-facts dd {
   margin: 0;
   color: var(--ink-subtle);
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.68;
 }
 
@@ -223,6 +223,34 @@
   max-width: 920px;
 }
 
+.brand-home-page .brand-proof a {
+  display: grid;
+  gap: 5px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand-home-page .brand-proof a:hover small {
+  color: #fff;
+}
+
+.brand-home-page .brand-proof a:focus-visible {
+  outline: 2px solid rgba(133, 205, 255, .92);
+  outline-offset: 5px;
+  border-radius: 4px;
+}
+
+.brand-home-page .brand-proof small {
+  font-size: 12px;
+}
+
+.brand-home-page .brand-proof-note {
+  margin: 14px 0 0;
+  color: rgba(235, 241, 251, .74);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
 .brand-home-page .section {
   padding: 96px 0;
 }
@@ -256,33 +284,19 @@
 }
 
 .brand-home-page .brand-about-section {
+  padding-block: 72px;
   border-top-color: rgba(255, 255, 255, .065);
   border-bottom-color: rgba(255, 255, 255, .065);
+}
+
+.brand-home-page .brand-about-section .brand-section-intro {
+  margin-bottom: 0;
 }
 
 .brand-home-page .brand-about-section .about-resume-link {
   min-height: 44px;
   align-items: center;
   margin-top: 18px;
-}
-
-.brand-home-page .brand-about-section .identity-evidence {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.brand-home-page .brand-about-section .identity-evidence article,
-.brand-home-page .brand-about-section .identity-evidence .evidence-current {
-  min-height: 156px;
-  padding: 24px;
-}
-
-.brand-home-page .brand-about-section .identity-evidence article > span {
-  font-size: 25px;
-}
-
-.brand-home-page .brand-about-section .identity-evidence .evidence-current > span {
-  font-size: 11px;
-  letter-spacing: .1em;
 }
 
 .brand-home-page .project-archive-head {
@@ -331,6 +345,19 @@
 .brand-home-page .now-builder-card .text-link {
   margin-top: auto;
   padding-top: 18px;
+}
+
+.brand-home-page .now-evidence-note {
+  display: block;
+  margin-top: auto;
+  padding-top: 18px;
+  color: rgba(235, 241, 251, .68);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.brand-home-page .now-builder-research {
+  background: linear-gradient(145deg, rgba(255, 255, 255, .035), rgba(255, 255, 255, .012));
 }
 
 .brand-home-page .brand-now-section,
@@ -843,7 +870,12 @@
   }
 
   .brand-home-page .brand-proof article {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-home-page .brand-proof article a {
     grid-template-columns: 112px minmax(0, 1fr);
+    align-items: baseline;
   }
 
   .brand-home-page .featured-project-media {
@@ -889,15 +921,6 @@
   }
 
   .brand-home-page .capability-evidence {
-    min-height: 0;
-  }
-
-  .brand-home-page .brand-about-section .identity-evidence {
-    grid-template-columns: 1fr;
-  }
-
-  .brand-home-page .brand-about-section .identity-evidence article,
-  .brand-home-page .brand-about-section .identity-evidence .evidence-current {
     min-height: 0;
   }
 
@@ -994,6 +1017,36 @@
   .brand-home-page .home-return-fab b {
     display: none;
   }
+}
+
+.brand-home-page .section-label,
+.brand-home-page .project-heading > div > span,
+.brand-home-page .now-builder-card > span {
+  color: rgba(185, 219, 255, .82);
+  font-size: 12px;
+}
+
+.brand-home-page .brand-proof > span,
+.brand-home-page .brand-positioning > span,
+.brand-home-page .archive-card-head small,
+.brand-home-page .open-source-card-meta,
+.brand-home-page .open-source-metrics dd,
+.brand-home-page .open-source-date,
+.brand-home-page .contact-primary small,
+.brand-home-page .contact-secondary small {
+  font-size: 11px;
+}
+
+.brand-home-page .project-sequence span,
+.brand-home-page .now-builder-card p,
+.brand-home-page .archive-summary,
+.brand-home-page .open-source-card p {
+  font-size: 14px;
+}
+
+.brand-home-page .archive-facts dt,
+.brand-home-page .archive-facts dd {
+  line-height: 1.6;
 }
 
 @media print {
