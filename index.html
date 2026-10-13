@@ -25,10 +25,11 @@
   <link rel="stylesheet" href="styles.css?v=20260818-1">
   <link rel="stylesheet" href="liquid-glass.css?v=20260818-1">
   <link rel="stylesheet" href="brand-home.css?v=20260923-1">
+  <link rel="stylesheet" href="theme.css?v=20261013-3">
+  <script src="theme.js?v=20261013-1"></script>
   <script>
     document.documentElement.classList.replace("no-js", "js");
     try { if (sessionStorage.getItem("jax-experience-ready") === "1") document.documentElement.classList.add("experience-ready"); } catch (error) {}
-    try { if (localStorage.getItem("jax-motion") === "off") document.documentElement.classList.add("motion-off", "experience-ready"); } catch (error) {}
   </script>
   <script type="application/ld+json">
     {
@@ -90,7 +91,7 @@
         <a class="nav-resume" href="resume.html">公开履历 ↗</a>
       </nav>
       <div class="header-actions">
-        <button class="motion-toggle" type="button" data-motion-toggle aria-pressed="false"><span aria-hidden="true">◉</span> 动效</button>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="切换到亮色主题" aria-pressed="false" hidden><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13.1A9 9 0 0 1 10.9 3.1a9 9 0 1 0 10 10Z"/></svg></button>
         <button class="menu-button" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="打开导航"><span></span><span></span></button>
       </div>
     </div>
@@ -317,6 +318,6 @@
   <a class="home-return-fab" href="#top" aria-label="回到首页顶部"><span aria-hidden="true">↑</span><b>首页</b></a>
   <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
   <script src="profile-config.js?v=20260818-1"></script>
-  <script src="script.js?v=20260818-1"></script>
+  <script src="script.js?v=20261013-3"></script>
 </body>
 </html>

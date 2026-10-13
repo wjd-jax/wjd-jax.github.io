@@ -110,24 +110,6 @@
   const bootScreen = document.querySelector(".boot-screen");
   const bootPercent = document.querySelector(".boot-percent");
   const bootSkip = document.querySelector(".boot-skip");
-  const motionToggle = document.querySelector("[data-motion-toggle]");
-
-  const syncMotionToggle = () => {
-    if (!motionToggle) return;
-    const disabled = root.classList.contains("motion-off");
-    motionToggle.setAttribute("aria-pressed", String(disabled));
-    motionToggle.setAttribute("aria-label", disabled ? "开启页面动效" : "关闭页面动效");
-    motionToggle.querySelector("span").textContent = disabled ? "○" : "◉";
-  };
-  syncMotionToggle();
-  motionToggle?.addEventListener("click", () => {
-    const disabled = !root.classList.contains("motion-off");
-    root.classList.toggle("motion-off", disabled);
-    root.classList.add("experience-ready");
-    try { localStorage.setItem("jax-motion", disabled ? "off" : "on"); } catch (error) {}
-    syncMotionToggle();
-    document.dispatchEvent(new CustomEvent("motion-preference-changed", { detail: { disabled } }));
-  });
 
   const completeBoot = () => {
     if (bootPercent) bootPercent.textContent = "100";
@@ -247,6 +229,46 @@
     }
   }
 
+  const reactiveGlass = document.querySelectorAll([
+    ".nav-shell",
+    ".global-header .header-inner",
+    ".hero-eyebrow",
+    ".system-window",
+    ".identity-evidence",
+    ".bento-card",
+    ".career-ledger",
+    ".case-console",
+    ".principle-grid article",
+    ".now-list",
+    ".contact-orbit",
+    ".hero-avatar",
+    ".brand-positioning",
+    ".featured-project",
+    ".project-archive-grid > article",
+    ".capability-evidence",
+    ".method-strip",
+    ".now-builder-card",
+    ".open-source-card",
+    ".contact-primary",
+    ".contact-secondary",
+    ".case-hero-meta article",
+    ".case-callout",
+    ".case-facts article",
+    ".decision-card",
+    ".case-next",
+    ".resume-projects article",
+    ".resume-capabilities article"
+  ].join(","));
+  if (root.dataset.theme) {
+    reactiveGlass.forEach((surface) => {
+      surface.classList.add("optical-glass");
+      const rim = document.createElement("span");
+      rim.className = "optical-rim";
+      rim.setAttribute("aria-hidden", "true");
+      surface.appendChild(rim);
+    });
+  }
+
   if (!reducedMotion.matches && finePointer.matches) {
     let pointerFrame = 0;
     let pointerX = window.innerWidth / 2;
@@ -254,7 +276,7 @@
     document.addEventListener("pointermove", (event) => {
       pointerX = event.clientX;
       pointerY = event.clientY;
-      if (root.classList.contains("motion-off") || pointerFrame) return;
+      if (root.dataset.theme === "light" || root.classList.contains("motion-off") || pointerFrame) return;
       pointerFrame = requestAnimationFrame(() => {
         root.style.setProperty("--pointer-x", `${pointerX}px`);
         root.style.setProperty("--pointer-y", `${pointerY}px`);
@@ -262,18 +284,6 @@
       });
     }, { passive: true });
 
-    const reactiveGlass = document.querySelectorAll([
-      ".nav-shell",
-      ".hero-eyebrow",
-      ".system-window",
-      ".identity-evidence",
-      ".bento-card",
-      ".career-ledger",
-      ".case-console",
-      ".principle-grid article",
-      ".now-list",
-      ".contact-orbit"
-    ].join(","));
     reactiveGlass.forEach((surface) => {
       let glassFrame = 0;
       let glassBounds = null;
@@ -283,7 +293,7 @@
         glassBounds = surface.getBoundingClientRect();
       }, { passive: true });
       surface.addEventListener("pointermove", (event) => {
-        if (root.classList.contains("motion-off")) return;
+        if (root.dataset.theme === "light" || root.classList.contains("motion-off")) return;
         const bounds = glassBounds || surface.getBoundingClientRect();
         glassX = ((event.clientX - bounds.left) / bounds.width) * 100;
         glassY = ((event.clientY - bounds.top) / bounds.height) * 100;
@@ -295,7 +305,11 @@
         });
       }, { passive: true });
       surface.addEventListener("pointerleave", () => {
+        if (glassFrame) cancelAnimationFrame(glassFrame);
+        glassFrame = 0;
         glassBounds = null;
+        surface.style.removeProperty("--glass-x");
+        surface.style.removeProperty("--glass-y");
       }, { passive: true });
     });
 
