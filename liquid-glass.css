@@ -1200,39 +1200,43 @@ body::before {
 .motion-off .principle-grid article,
 .motion-off .now-list { --glass-x: 50%; --glass-y: 10%; }
 
-/* Top-anchored navigation: transparent at rest, denser once content scrolls. */
+/* Long cards stay visible while scrolling on touch-sized layouts. */
+@media (max-width: 900px) {
+  .js .home-page .reveal,
+  .js .case-study-page .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* The inner capsule is the only navigation surface. */
 .global-header {
   position: fixed;
   z-index: 100;
   inset: 0 0 auto;
   top: 0;
   width: 100%;
-  height: 64px;
+  height: auto;
+  padding: max(12px, env(safe-area-inset-top)) 0 0;
   border: 0;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  background: linear-gradient(180deg, rgba(8,14,27,.94), rgba(8,14,27,.86));
-  box-shadow: 0 14px 38px rgba(0,0,0,.14);
+  background: transparent;
+  box-shadow: none;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  pointer-events: auto;
+  pointer-events: none;
   transition: none;
 }
 .global-header::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 1px;
-  pointer-events: none;
-  opacity: .5;
-  background: linear-gradient(90deg, transparent 4%, rgba(255,255,255,.2) 28%, rgba(185,222,255,.32) 50%, rgba(255,255,255,.16) 72%, transparent 96%);
+  display: none;
 }
 .global-header::after {
   display: none;
 }
 .global-header.is-scrolled {
-  background: linear-gradient(180deg, rgba(8,14,27,.94), rgba(8,14,27,.86));
-  border-bottom-color: rgba(255,255,255,.08);
-  box-shadow: 0 14px 38px rgba(0,0,0,.14);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
@@ -1254,7 +1258,7 @@ body::before {
 }
 
 @media (max-width: 800px) {
-  .global-header { top: 0; height: 60px; }
+  .global-header { top: 0; height: auto; }
   .nav-shell,
   .global-header.is-scrolled .nav-shell {
     width: calc(100vw - 32px);
@@ -3192,7 +3196,7 @@ body::before {
   }
 
   .home-page .global-header {
-    height: 68px;
+    height: auto;
   }
 
   .home-page .desktop-nav {

@@ -368,7 +368,8 @@
       }
       if (menuButton.getAttribute("aria-expanded") === "true" && !navigation.contains(event.target)) closeMenu();
     }, true);
-    navigation.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+    navigation.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => closeMenu()));
+    window.matchMedia("(max-width: 900px)").addEventListener("change", () => closeMenu());
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") closeMenu(true);
     });

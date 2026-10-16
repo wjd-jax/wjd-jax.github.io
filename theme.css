@@ -75,9 +75,7 @@ html[data-theme="light"] .theme-toggle:hover { color: var(--primary); border-col
 html[data-theme="light"] .theme-sun { display: none; }
 html[data-theme="light"] .theme-toggle .theme-moon { display: block; }
 
-/* A stable pale navigation surface follows the current fixed-header behavior. */
-html[data-theme="light"] .global-header,
-html[data-theme="light"] .global-header.is-scrolled,
+/* The capsule owns its surface; the surrounding header stays transparent. */
 html[data-theme="light"] .resume-header {
   border-color: var(--hairline);
   background: linear-gradient(180deg, rgba(250, 252, 255, .97), rgba(244, 248, 253, .95));
@@ -88,10 +86,10 @@ html[data-theme="light"] .resume-header {
 html[data-theme="light"] .global-header .header-inner {
   border-color: var(--hairline);
   border-top-color: #fff;
-  background: linear-gradient(155deg, rgba(255, 255, 255, .86), rgba(232, 241, 255, .48));
+  background: linear-gradient(155deg, rgba(255, 255, 255, .97), rgba(232, 241, 255, .95));
   box-shadow: 0 10px 32px rgba(48, 76, 126, .06), inset 0 1px 0 #fff, inset 0 -1px 0 rgba(84, 134, 200, .12);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
 }
 html[data-theme="light"] .desktop-nav a,
 html[data-theme="light"] .case-header-actions a,
@@ -372,7 +370,11 @@ html[data-theme="light"] .home-page .project-archive-grid > article:hover { tran
 }
 @media (max-width: 680px) {
   .case-study-page .case-header-actions { gap: 6px; }
-  .resume-header nav { gap: 6px; }
+  .resume-page .resume-header { gap: 8px; padding-inline: 16px; }
+  .resume-page .resume-header .wordmark { flex-shrink: 0; gap: 6px; font-size: 11px; white-space: nowrap; }
+  .resume-page .resume-header .wordmark-symbol { width: 20px; height: 20px; }
+  .resume-page .resume-header nav { gap: 4px; }
+  .resume-page .resume-header nav a { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 8px; font-size: 11px; white-space: nowrap; }
 }
 @media print {
   .theme-toggle, .optical-rim { display: none !important; }
