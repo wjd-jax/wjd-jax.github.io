@@ -3,7 +3,7 @@ window.SITE_PROFILE = {
   name: "王军东",
   englishName: "Jax",
   avatarUrl: "assets/avatar.jpg",
-  role: "复杂产品构建者｜AI 产品实践与 Web3 背景",
+  role: "产品负责人｜工程背景 · Web3 与 AI 实践",
   location: "中国 · 杭州",
   email: "wangjd.vip@gmail.com",
   emailLabel: "Email",
@@ -19,5 +19,5 @@ window.SITE_PROFILE = {
   telegramLabel: "Telegram",
   telegramHandle: "@jaxwang2021",
   telegramUrl: "https://t.me/jaxwang2021",
-  availability: "欢迎交流 AI 产品化、复杂产品 0→1、Web3 产品机制，以及工程与产品如何更好地协同",
+  availability: "欢迎交流钱包、Web3 应用、AI 工具与从 0 到 1 的产品构建",
 };
